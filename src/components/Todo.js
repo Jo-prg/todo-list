@@ -9,6 +9,19 @@ function Todo({ todo, completeTodo, removeTodo, updateTodo }) {
     value: ''
   })
 
+  const minTwoDigits = (n) => {
+    return (n < 10 ? '0' : '') + n;
+  }
+
+  const convertHours = (date, separator = ':') => {
+
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
+
+    return `${hours}${separator}${minTwoDigits(minutes)}${separator}${minTwoDigits(seconds)}`;
+  }
+
   const submitUpdate = value => {
     updateTodo(edit.id, value);
     setEdit({
@@ -24,7 +37,7 @@ function Todo({ todo, completeTodo, removeTodo, updateTodo }) {
     <>
       <div className="todo-info" onClick={() => completeTodo(todo.id)}>
         <div>{todo.text}</div>
-        <div>{todo.time}</div>
+        <div>{convertHours(todo.time)}</div>
       </div>
 
       <div className="icons">

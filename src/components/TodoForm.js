@@ -3,22 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 function TodoForm(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : '');
 
-  const minTwoDigits = (n) => {
-    return (n < 10 ? '0' : '') + n;
-  }
-
-  const getCurrentTime = (separator = ':') => {
-
-    let newDate = new Date()
-    let hours = newDate.getHours();
-    let minutes = newDate.getMinutes();
-    let seconds = newDate.getSeconds();
-    // let milliseconds = newDate.getTime();
-
-    return `${hours}${separator}${minTwoDigits(minutes)}${separator}${minTwoDigits(seconds)}`;
-  }
-
-  const inputRef = useRef(null)
+  const inputRef = useRef(null);
 
   useEffect(() => {
     inputRef.current.focus();
@@ -30,11 +15,12 @@ function TodoForm(props) {
 
   const handleSubmit = e => {
     e.preventDefault();
+    const newDate = new Date();
 
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
       text: input,
-      time: getCurrentTime()
+      time: newDate
     });
 
     setInput('');
