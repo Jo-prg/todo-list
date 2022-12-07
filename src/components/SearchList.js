@@ -4,7 +4,7 @@ import Todo from './Todo';
 
 // bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col, InputGroup, FormControl, ListGroup } from 'react-bootstrap'
+import { InputGroup, FormControl } from 'react-bootstrap'
 
 const SearchList = ({ todos, setTodos, sort, handleSortClick }) => {
   const [searchInput, setSearchInput] = useState('');
@@ -26,8 +26,7 @@ const SearchList = ({ todos, setTodos, sort, handleSortClick }) => {
       return;
     };
 
-    setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item))
-    );
+    setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item)));
   };
 
   const removeTodo = id => {

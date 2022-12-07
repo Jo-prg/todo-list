@@ -37,6 +37,7 @@ function Todo({ todo, completeTodo, removeTodo, updateTodo }) {
     <>
       <div className="todo-info" onClick={() => completeTodo(todo.id)}>
         <div>{todo.text}</div>
+        <div>{todo.category}</div>
         <div>{convertHours(todo.time)}</div>
       </div>
 

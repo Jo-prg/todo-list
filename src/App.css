@@ -16,7 +16,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  width: 520px;
+  width: 700px;
   min-height: 600px;
   background: white;
   text-align: center;
@@ -98,7 +98,7 @@ h1 {
 
 .todo-info {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-items: left;
 }
 
